@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body style="width: 100%; height: 100%; max-width: 100%;
+    overflow-x: hidden; overflow-y: hidden;">
+
+<script type="text/javascript" src="ygg.js"></script>
+
+<style>
+    .world {
+        display: none; 
+        position: absolute; 
+        border: 10px solid white; 
+        border-radius: 10px; 
+        background-color: white; 
+        opacity: 0.85;
+    }
+
+    .resource {
+        display: none;
+    }
+
+    .canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+    <canvas id="canvas" class="canvas" height="900" width="1233"></canvas>
+
+    <img id="tree" class="resource" src="yggdrasil_by_satanoy_d359gza-fullview.jpg">
+    <img id="sprite" class="resource" src="squirrel.png">
+    <img id="spriteMirrored" class="resource" src="squirrel_mirror.png">
+
+    <div id="asgard" class="world" style="--left: 600; --top:450; width: 200px; --show-x1: 630; --show-x2: 900; --show-y1: 350; --show-y2: 500;">
+        <h3><em>Asgard</em></h3>
+        <p>
+            The dwelling-place of the gods
+        </p>
+        <img width="100%" src="asgard_by_alineanisia_df11ly2-fullview.jpg">
+        <p>
+            Legend divided Asgard into 12 or more realms, including Valhalla, the home of Odin and the abode of heroes slain in earthly battle; Thrudheim, the realm of Thor; and Breidablik, the home of Balder.
+        </p>
+    </div>
+
+    <div id="Alfheim" class="world" style="--left: 130; --top:700; width: 300px; --show-x1: 130; --show-x2: 200; --show-y1: 550; --show-y2: 700;">
+        <h3><em>Alfheim</em></h3>
+        <p>
+            The land of the elves
+        </p>
+        <img width="100%" src="alfheim_by_whitewlf21_dfar6iv.png">
+        <p>
+            Freyr was said to be the ruler of Alfheim.
+        </p>
+    </div>
+
+    <!--
+    Niflheim 
+    Helheim
+    Jotunheim
+    Vanaheim
+    Muspelheim
+    Svartalheim
+    Midgard
+    --> 
+</body>
+</html>
+
+
