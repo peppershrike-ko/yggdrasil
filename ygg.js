@@ -11,14 +11,6 @@
         canvas = document.getElementById('canvas');
         context = canvas.getContext('2d');
         document.addEventListener("keydown", keyPressed);
-        let left = document.getElementById('left');
-        left.addEventListener('click', goLeft);
-        let right = document.getElementById('right');
-        right.addEventListener('click', goRight);
-        let up = document.getElementById('up');
-        up.addEventListener('click', goUp);
-        let down = document.getElementById('down');
-        down.addEventListener('click', goDown);
         canvas.addEventListener('click', tap);
         setupElements();
 
@@ -77,22 +69,6 @@
         verticalDirection = 0;
     }
 
-    function goLeft() {
-        setHorizontalDirection(-1);
-    }
-
-    function goRight() {
-        setHorizontalDirection(1);
-    }
-
-    function goUp() {
-        setVerticalDirection(-1);
-    }
-
-    function goDown() {
-        setVerticalDirection(1);
-    }
-
     function tap(event) {
         let deltaX = event.clientX - (spriteX / tree.width * treeWidth);
         let deltaY = event.clientY - (spriteY / tree.height * treeHeight);
@@ -106,13 +82,13 @@
 
     function keyPressed(event) {
         if (event.keyCode == 37 /* LEFT */) {
-            goLeft();
+            setHorizontalDirection(-1);
         } else if (event.keyCode == 38 /* UP */) {
-            goUp()
+            setVerticalDirection(-1);
         } else if (event.keyCode == 39 /* RIGHT */) {
-            goRight();
+            setHorizontalDirection(1);
         } else if (event.keyCode == 40 /* DOWN */) {
-            goDown();
+            setVerticalDirection(1);
         }
     }
 
