@@ -11,7 +11,14 @@
         canvas = document.getElementById('canvas');
         context = canvas.getContext('2d');
         document.addEventListener("keydown", keyPressed);
-
+        let left = document.getElementById('left');
+        left.addEventListener('click', goLeft);
+        let right = document.getElementById('right');
+        right.addEventListener('click', goRight);
+        let up = document.getElementById('up');
+        up.addEventListener('click', goUp);
+        let down = document.getElementById('down');
+        down.addEventListener('click', goDown);
         setupElements();
 
         // Start the first frame request
@@ -69,15 +76,31 @@
         verticalDirection = 0;
     }
 
+    function goLeft() {
+        setHorizontalDirection(-1);
+    }
+
+    function goRight() {
+        setHorizontalDirection(1);
+    }
+
+    function goUp() {
+        setVerticalDirection(-1);
+    }
+
+    function goDown() {
+        setVerticalDirection(1);
+    }
+
     function keyPressed(event) {
         if (event.keyCode == 37 /* LEFT */) {
-            setHorizontalDirection(-1)
+            goLeft();
         } else if (event.keyCode == 38 /* UP */) {
-            setVerticalDirection(-1);
+            goUp()
         } else if (event.keyCode == 39 /* RIGHT */) {
-            setHorizontalDirection(1);
+            goRight();
         } else if (event.keyCode == 40 /* DOWN */) {
-            setVerticalDirection(1);
+            goDown();
         }
     }
 
