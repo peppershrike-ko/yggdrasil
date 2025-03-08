@@ -19,6 +19,7 @@
         up.addEventListener('click', goUp);
         let down = document.getElementById('down');
         down.addEventListener('click', goDown);
+        canvas.addEventListener('click', tap);
         setupElements();
 
         // Start the first frame request
@@ -58,7 +59,7 @@
     let spriteY = 351; //30;
 
     function setVerticalDirection(newVerticalDirection) {
-        if (verticalDirection == newVerticalDirection) {
+        if (Math.sign(verticalDirection) == Math.sign(newVerticalDirection)) {
             verticalDirection = 0;
         } else {
             verticalDirection = newVerticalDirection;
@@ -67,7 +68,7 @@
     }
 
     function setHorizontalDirection(newHorizontalDirection) {
-        if (horizontalDirection == newHorizontalDirection) {
+        if (Math.sign(horizontalDirection) == Math.sign(newHorizontalDirection)) {
             horizontalDirection = 0;
         } else {
             horizontalDirection = newHorizontalDirection;
@@ -90,6 +91,17 @@
 
     function goDown() {
         setVerticalDirection(1);
+    }
+
+    function tap(event) {
+        let deltaX = event.clientX - (spriteX / tree.width * treeWidth);
+        let deltaY = event.clientY - (spriteY / tree.height * treeHeight);
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            setHorizontalDirection(Math.sign(deltaX));
+        } else {
+            setVerticalDirection(Math.sign(deltaY));
+        }
     }
 
     function keyPressed(event) {
